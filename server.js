@@ -69,9 +69,7 @@ io.on("connection", (socket) => {
     resetGame(); // Reset the game state
     io.emit("resetGame"); // Notify all clients to reset their UI
   });
-});
-
-// Handle a player's symbol selection
+  // Handle a player's symbol selection
 socket.on("chooseSymbol", (symbol) => {
   if (!Object.keys(gameState.players).length) {
     // First player chooses their symbol
@@ -96,6 +94,9 @@ socket.on("chooseSymbol", (symbol) => {
     }
   }
 });
+});
+
+
 
 // Handle player moves
 socket.on("makeMove", (index) => {
