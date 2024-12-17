@@ -1,4 +1,4 @@
-const socket = io("http://localhost:3000"); // Connect to the server
+const socket = io(); // Auto-connect to the same host (server)
 
 // DOM Elements
 const cells = document.querySelectorAll(".cell"); // All game board cells
