@@ -55,6 +55,7 @@ function checkWinner(board) {
 }
 
 // Handle new client connections
+
 io.on("connection", (socket) => {
   // Reject a third player if two players are already connected
   if (Object.keys(gameState.players).length >= 2) {
@@ -63,12 +64,6 @@ io.on("connection", (socket) => {
     return;
   }
 
-  // Hn("connection", (socket) => {
-  socket.on("resetGame", () => {
-    console.log("Game reset by player.");
-    resetGame(); // Reset the game state
-    io.emit("resetGame"); // Notify all clients to reset their UI
-  });
   // Handle a player's symbol selection
 socket.on("chooseSymbol", (symbol) => {
   if (!Object.keys(gameState.players).length) {
@@ -146,6 +141,8 @@ socket.on("disconnect", () => {
   resetGame(); // Reset the game when a player disconnects
   broadcastGameState(); // Notify all clients
 });
+
+  
 });
 
 
