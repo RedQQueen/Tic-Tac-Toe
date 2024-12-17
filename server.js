@@ -94,11 +94,7 @@ socket.on("chooseSymbol", (symbol) => {
     }
   }
 });
-});
-
-
-
-// Handle player moves
+  // Handle player moves
 socket.on("makeMove", (index) => {
   if (!gameState.winner && !gameState.board[index]) {
     // First check if there is no winner and the cell is empty
@@ -150,6 +146,11 @@ socket.on("disconnect", () => {
   resetGame(); // Reset the game when a player disconnects
   broadcastGameState(); // Notify all clients
 });
+});
+
+
+
+
 
 server.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
